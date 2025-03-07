@@ -456,7 +456,7 @@ def test_mapping_event_name(df,
 
     Returns
     -------
-    df: pandas.DataFrame
+    df: pandas DataFrame
         Event log
     event_name_dict: dictionary
         The keys are activity labels in training set and the values are the corresponding index.
