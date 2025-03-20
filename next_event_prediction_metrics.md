@@ -1,3 +1,10 @@
+## Performance of trace-based and integrated SEP models for next event prediction
+
+The table below illustrates that SEP models benefit from incorporating log prefixes when predicting the next activity label and next timestamp. This suggests that the poor performance of integrated SEP models in suffix prediction stems from an inherent limitation of the SEP method (i.e. log prefixes remain static during suffix generation) rather than from noise introduced by the log prefix.
+
+The performance of next activity label prediction is evaluated using precision and recall, with higher values indicating better predictive performance. The performance of next timestamp prediction is assessed using Mean Absolute Error (MAE) and Mean Squared Logarithmic  Error (MSLE), with lower values indicating better predictive performance.
+
+Metrics are **bold** when integrated models outperform trace-based models.
 
 
 |            | **BPIC2017**    |                 |                 |                 |**BPIC2019**     |                 |                 |                 | **BAC**         |                 |                 |                 |
