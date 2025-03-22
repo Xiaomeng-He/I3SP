@@ -53,7 +53,7 @@ def train(model,
     Returns
     -------
     avg_train_loss : float
-        Total training loss, computed as the unweighted sum of the activity ;abel 
+        Total training loss, computed as the unweighted sum of the activity label 
         and timestamp suffix prediction losses.
     avg_train_act_loss : float
         Training loss for activity label suffix prediction.
