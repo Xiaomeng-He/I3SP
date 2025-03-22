@@ -12,11 +12,13 @@ To facilitate navigation, below is an overview of the files:
 
 - **`2_Seq2Seq/`**  
   Contains scripts for creating both trace-based and integrated Seq2Seq models:  
-  - `create_Seq2Seq.py`: Implements the Seq2Seq model.  
+  - `create_Seq2Seq.py`: Implements the Seq2Seq model.
+  - `train_evaluate_Seq2Seq.py`: Defines loss functions and performance metrics to train and evaluate the Seq2Seq model.
 
 - **`3_SEP_LSTM/`**  
   Contains scripts for creating both trace-based and integrated SEP-LSTM models:  
-  - `create_SEP_LSTM.py`: Implements the SEP-LSTM model.  
+  - `create_SEP_LSTM.py`: Implements the SEP-LSTM model.
+  - `train_evaluate_SEP_LSTM.py`: Defines loss functions to train the SEP-LSTM model, as well as performance metrics to evaluate the iteratively generated suffix.
 
 - **`next_event_prediction_metrics.md`**  
   Documents the performance metrics of SEP-LSTM and SEP-XGBoost for two supplementary prediction tasks:  
