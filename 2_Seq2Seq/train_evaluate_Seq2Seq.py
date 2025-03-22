@@ -129,7 +129,8 @@ def validate(model,
             class_weights,
             tf_rate=0):
     """
-    Calculate loss and performance metrics on the validation set.
+    Calculate loss and performance metrics on the validation set for the Seq2Seq
+    model.
 
     Parameters
     ----------
