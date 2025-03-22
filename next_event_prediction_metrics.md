@@ -1,8 +1,6 @@
 ## Performance of trace-based and integrated SEP models for next event prediction
 
-The table below illustrates that SEP models benefit from incorporating log prefixes when predicting the next activity label and next timestamp. This suggests that the poor performance of integrated SEP models in suffix prediction stems from an inherent limitation of the SEP method (i.e. log prefixes remain static during suffix generation) rather than from noise introduced by the log prefix.
-
-The performance of next activity label prediction is evaluated using precision and recall, with higher values indicating better predictive performance. The performance of next timestamp prediction is assessed using Mean Absolute Error (MAE) and Mean Squared Logarithmic  Error (MSLE), with lower values indicating better predictive performance.
+In the table below, the performance of next activity label prediction is evaluated using precision and recall, with higher values indicating better predictive performance. The performance of next timestamp prediction is assessed using Mean Absolute Error (MAE) and Mean Squared Logarithmic  Error (MSLE), with lower values indicating better predictive performance.
 
 Metrics are **bold** when integrated models outperform trace-based models.
 
@@ -16,3 +14,5 @@ Metrics are **bold** when integrated models outperform trace-based models.
 | **SEP-LSTM**  |              |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |
 | Trace-based | 0.8809         | 0.8911          | 577             | 3.38            | 0.7161          | 0.7424          | 10330           | 5.55            | 0.7799          | 0.7657          | 52.32           | 0.52            |
 | Integrated  | **0.8821**     | **0.8936**      | 587             | **3.21**        | **0.7915**      | **0.7836**      | 10771           | **5.12**        | **0.7875**       | **0.7803**     | 52.74           | 0.54            |
+
+This table illustrates that SEP models benefit from incorporating log prefixes when predicting the next activity label and next timestamp.
