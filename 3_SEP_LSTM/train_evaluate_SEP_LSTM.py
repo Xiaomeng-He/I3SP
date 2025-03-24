@@ -593,7 +593,7 @@ def init_weights(m):
     Parameters
     ----------
     m : torch.nn.Module
-        An instance of the Seq2Seq_trace or Seq2Seq_cat class.
+        An instance of the SEP_LSTM_trace or SEP_LSTM_cat class.
     """
     for name, param in m.named_parameters():
         nn.init.uniform_(param.data, -0.08, 0.08)
