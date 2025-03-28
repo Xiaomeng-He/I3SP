@@ -1,5 +1,7 @@
 # I3SP
 
+## Introduction
+
 This repository contains the code and implementation details for the paper **Inter-case Informed Business Process Suffix Prediction Integrating Trace and Log Information**.
 
 To facilitate navigation, below is an overview of the files:
@@ -29,3 +31,9 @@ To facilitate navigation, below is an overview of the files:
   - Next activity label prediction
   - Next timestamp prediction
 
+## Python Environment Setup
+
+The research project is implemented using Python 3.12.7. To install all required packages, download `requirements.txt` and run the following command:
+
+```bash
+pip install -r requirements.txt
