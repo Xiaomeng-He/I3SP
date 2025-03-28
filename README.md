@@ -20,6 +20,10 @@ To facilitate navigation, below is an overview of the files:
   - `create_SEP_LSTM.py`: Implements the SEP-LSTM model.
   - `train_evaluate_SEP_LSTM.py`: Defines loss functions to train the SEP-LSTM model, as well as performance metrics to evaluate the iteratively generated suffix.
 
+- **`4_SEP_XGBoost/`**  
+  Contains scripts for creating both trace-based and integrated SEP-XGBoost models:  
+  - `SEP_XGBoost_pipeline`: Trains two separate XGBoost models—one for predicting the next activity label and another for the next timestamp. It then iteratively generates suffixes using the trained models and evaluates their performance.
+
 - **`next_event_prediction_metrics.md`**  
   Documents the performance metrics of SEP-LSTM and SEP-XGBoost for two supplementary prediction tasks:  
   - Next activity label prediction
