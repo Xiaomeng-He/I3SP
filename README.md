@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository contains the code and implementation details for the paper **Inter-case Informed Business Process Suffix Prediction Integrating Trace and Log Information**.
+This repository contains the code and implementation details for the paper **Inter-Case Informed Business Process Suffix Prediction Integrating Trace and Log Information**.
 
 To facilitate navigation, below is an overview of the files:
 
@@ -13,7 +13,7 @@ To facilitate navigation, below is an overview of the files:
   - `create_prefix_suffix.py`: Generates trace prefixes, log prefixes, and trace suffixes.  
 
 - **`2_Seq2Seq/`**  
-  Contains scripts for creating both trace-based and integrated Seq2Seq models:  
+  Contains scripts for creating trace-based and integrated Seq2Seq models, each available in two variants: with or without the attention mechanism:
   - `create_Seq2Seq.py`: Implements the Seq2Seq model.
   - `train_evaluate_Seq2Seq.py`: Defines loss functions and performance metrics to train and evaluate the Seq2Seq model.
 
@@ -25,11 +25,6 @@ To facilitate navigation, below is an overview of the files:
 - **`4_SEP_XGBoost/`**  
   Contains scripts for creating both trace-based and integrated SEP-XGBoost models:  
   - `SEP_XGBoost_pipeline.ipynb`: Trains two separate XGBoost models—one for predicting the next activity label and another for the next timestamp. It then iteratively generates suffixes using the trained models and evaluates their performance.
-
-- **`next_event_prediction_metrics.md`**  
-  Documents the performance metrics of SEP-LSTM and SEP-XGBoost for two supplementary prediction tasks:  
-  - Next activity label prediction
-  - Next timestamp prediction
 
 ## Python Environment Setup
 
