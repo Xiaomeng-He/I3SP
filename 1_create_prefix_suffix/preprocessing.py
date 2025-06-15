@@ -87,35 +87,31 @@ def debiasing(df,
 
     """
     # step 1: remove outliers starting before start_date
-    # create tables containing the first timestamp of each case
-    case_starts_df = pd.DataFrame(df.groupby(case_id)[timestamp].min().reset_index())
-    # convert timestamp to 'YYYY-MM'
-    case_starts_df['date'] = case_starts_df[timestamp].dt.to_period('M')
-    # create array containing case_id of cases starting after start_date 
-    if start_date is None:
-        cases_after = case_starts_df[case_id].values
-    else:
+    if start_date is not None:
+        # create tables containing the first timestamp of each case
+        case_starts_df = df.groupby(case_id)[timestamp].min().reset_index()
+        # convert timestamp to 'YYYY-MM'
+        case_starts_df['date'] = case_starts_df[timestamp].dt.to_period('M')
+        # create array containing case_id of cases starting after start_date 
         cases_after = case_starts_df[case_starts_df['date'].astype('str') >= start_date][case_id].values
-    # filter the dataframe
-    df = df[df[case_id].isin(cases_after)].reset_index(drop=True)
+        # filter the dataframe
+        df = df[df[case_id].isin(cases_after)].reset_index(drop=True)
 
     # step 2: remove outliers ending after end_date
-    # create tables containing the last timestamp of each case
-    case_stops_df = pd.DataFrame(df.groupby(case_id)[timestamp].max().reset_index())
-    # convert timestamp to 'YYYY-MM'
-    case_stops_df['date'] = case_stops_df[timestamp].dt.to_period('M')
-    # create array containing case_id of cases ending before end_date
-    if end_date is None:
-        cases_before = case_stops_df[case_id].values
-    else:
+    if end_date is not None: 
+        # create tables containing the last timestamp of each case
+        case_stops_df = df.groupby(case_id)[timestamp].max().reset_index()
+        # convert timestamp to 'YYYY-MM'
+        case_stops_df['date'] = case_stops_df[timestamp].dt.to_period('M')
+        # create array containing case_id of cases ending before end_date
         cases_before = case_stops_df[case_stops_df['date'].astype('str') <= end_date][case_id].values
-    # filter the dataframe
-    df = df[df[case_id].isin(cases_before)].reset_index(drop=True)
+        # filter the dataframe
+        df = df[df[case_id].isin(cases_before)].reset_index(drop=True)
 
     # step 3: retain only cases shorter than max_duration
     # compute each case's duration in days
     agg_dict = {timestamp: ['min', 'max']}
-    duration_df = pd.DataFrame(df.groupby(case_id).agg(agg_dict)).reset_index()
+    duration_df = df.groupby(case_id).agg(agg_dict).reset_index()
     duration_df["duration"] = (duration_df[(timestamp,"max")] - \
                                duration_df[(timestamp,"min")]).dt.total_seconds() \
                                 / (24 * 60 * 60)
@@ -143,7 +139,7 @@ def debiasing(df,
     # ensure event log is sorted by timestamp
     df = df.sort_values(by=timestamp).reset_index(drop=True)
     
-    return df, latest_start 
+    return df, latest_start
 
 def mapping_case_id(df, 
                     case_id):
