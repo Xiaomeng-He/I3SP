@@ -74,8 +74,8 @@ def create_log_prefix(df,
 
         log_prefix_list = []
 
-        # set masking values for categorical and continuous features
-        masking_number = int(0) if col in categorical_features else float(-10000)
+        # set padding values for categorical and continuous features
+        padding_number = int(0) if col in categorical_features else float(-10000)
 
         for i in range(start_idx, end_idx):
             
@@ -85,9 +85,9 @@ def create_log_prefix(df,
                 start = max(0, i - log_prefix_len + 1)                
                 prefix = df[col].iloc[start:i+1].tolist()                
 
-                # apply left masking
-                masking = [masking_number] * max(0, log_prefix_len - len(prefix)) 
-                prefix = masking + prefix
+                # apply left padding
+                padding = [padding_number] * max(0, log_prefix_len - len(prefix)) 
+                prefix = padding + prefix
                 log_prefix_list.append(prefix)
 
         # create tensor for each feature column
@@ -170,8 +170,8 @@ def create_trace_prefix(df,
 
         trace_prefix_list = []
 
-        # set masking values for categorical and continuous features
-        masking_number = int(0) if col in categorical_features else float(-10000)
+        # set padding values for categorical and continuous features
+        padding_number = int(0) if col in categorical_features else float(-10000)
 
         for i in range(start_idx, end_idx):
 
@@ -190,9 +190,9 @@ def create_trace_prefix(df,
                 if len(prefix) > trace_prefix_len:
                     prefix = prefix[-trace_prefix_len:]
 
-                # apply left masking
-                masking = [masking_number] * max(0, trace_prefix_len - len(prefix)) 
-                prefix = masking + prefix
+                # apply left padding
+                padding = [padding_number] * max(0, trace_prefix_len - len(prefix)) 
+                prefix = padding + prefix
                 trace_prefix_list.append(prefix)
 
         # create tensor for each feature column
@@ -272,8 +272,8 @@ def create_trace_suffix(df,
 
         trace_suffix_list = []
 
-        # set masking values for categorical and continuous features
-        masking_number = int(0) if col in categorical_features else float(-10000)
+        # set padding values for categorical and continuous features
+        padding_number = int(0) if col in categorical_features else float(-10000)
 
         for i in range(start_idx, end_idx):
             # skip EOC events (event_name == 3), but include SOC
@@ -290,9 +290,9 @@ def create_trace_suffix(df,
                 if len(suffix) > trace_suffix_len:
                     suffix = suffix[:trace_suffix_len]
                 
-                # apply right masking
-                masking = [masking_number] * max(0, trace_suffix_len - len(suffix)) # make sure that (trace_suffix_length - len(suffix)) would not be a negative number
-                suffix = suffix + masking
+                # apply right padding
+                padding = [padding_number] * max(0, trace_suffix_len - len(suffix)) # make sure that (trace_suffix_length - len(suffix)) would not be a negative number
+                suffix = suffix + padding
                 trace_suffix_list.append(suffix)
 
         # create tensor for each feature column    
