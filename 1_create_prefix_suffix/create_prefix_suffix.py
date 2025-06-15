@@ -158,7 +158,7 @@ def create_trace_prefix(df,
     -------
     trace_prefix_cat_tensor : tensor
         A tensor storing trace prefixes.
-        Shape: (num_samples, trace_prefix_len, num_act + 1)
+        Shape: (num_samples, trace_prefix_len, num_act + 2)
     """
 
     # ensure event log is sorted by event_idx
