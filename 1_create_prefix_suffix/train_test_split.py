@@ -63,8 +63,9 @@ def get_discard_case_list(df,
                           timestamp):
     """
     Get the list of cases that should be removed from development set (for 
-    BPIC2017 and BAC) or test set (for BPIC2019) when generating prefixes and
-    suffixes. These cases start before and end after the splitting point.
+    BPIC2012, BPIC2017 and BAC) or test set (for BPIC2019) when generating 
+    prefixes and suffixes. These cases start before and end after the splitting 
+    point.
 
     Parameters
     ----------
